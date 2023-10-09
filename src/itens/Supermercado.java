@@ -60,6 +60,7 @@ public class Supermercado {
 
 	public void excluirProduto(String nome) {
 		String nomeSemAcentoInput = removerAcentos(nome).toLowerCase();	
+
 		listaDeProdutos.removeIf(produto -> {
 			String nomeSemAcentoProduto = removerAcentos(produto.getNome()).toLowerCase();
         return nomeSemAcentoProduto.contains(nomeSemAcentoInput);
