@@ -38,6 +38,7 @@ public class Supermercado {
 				encontrou = true;
 			}
 		}
+	
 
 		if (!encontrou) {
 			System.out.println("Nenhum produto encontrado com o nome '" + nome + "'.");

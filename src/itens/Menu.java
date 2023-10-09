@@ -1,5 +1,6 @@
 package itens;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -18,26 +19,27 @@ public class Menu {
 	}
 
 	public void selecaoMenu() {
-		int opcMenu;
-		opcMenu = key.nextInt();
-		while (opcMenu != 0) {
+		int opcMenu;	
+		do {
+			opcoesMenu();
+			try {
+				opcMenu = key.nextInt();
+			} catch (InputMismatchException e) {
+				opcMenu = -1;
+				key.next();
+			}
+			
 			switch (opcMenu) {
 			case 1:
 				comandos.listarProdutos();
-				opcoesMenu();
-				opcMenu = key.nextInt();
 				break;
 			case 2:
 				System.out.println("Qual o Produto que deseja:");
 				comandos.buscarPorNome(key.next());
-				opcoesMenu();
-				opcMenu = key.nextInt();
 				break;
 			case 3:
 				System.out.println("Qual o tipo de produto que deseja:");
 				comandos.buscarPorTipo(key.next());
-				opcoesMenu();
-				opcMenu = key.nextInt();
 				break;
 			case 4:
 				System.out.println("Cadastro de produto:");
@@ -50,15 +52,11 @@ public class Menu {
 				System.out.println("Qual a quantidade");
 				quantidade = key.nextInt();
 				comandos.cadastrarProduto(nome, tipo, valor, quantidade);
-				opcoesMenu();
-				opcMenu = key.nextInt();
 				break;
 
 			case 5:
 				System.out.println("Qual produto ira excluir:");
 				comandos.excluirProduto(key.next());
-				opcoesMenu();
-				opcMenu = key.nextInt();
 				break;
 			case 6:
 				System.out.println("qual o produto que ira trocar o valor");
@@ -66,8 +64,6 @@ public class Menu {
 				System.out.println("Qual o novo valor:");
 				valor = key.nextDouble();
 				comandos.alterarValor(nome, valor);
-				opcoesMenu();
-				opcMenu = key.nextInt();
 				break;
 			case 7:
 				System.out.println("qual o produto que ira mudar  quantidade no estoque");
@@ -75,15 +71,13 @@ public class Menu {
 				System.out.println("quantos tem no estoque");
 				valor = key.nextDouble();
 				comandos.alterarEstoque(nome, quantidade);
-				opcoesMenu();
-				opcMenu = key.nextInt();
+				break;
+			case 0:
 				break;
 			default:
 				System.out.println("Comando ivalido");
-				opcoesMenu();
-				opcMenu = key.nextInt();
 				break;
 			}
-		}
+		} while (opcMenu != 0);
 	}
 }
