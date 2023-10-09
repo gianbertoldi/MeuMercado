@@ -21,7 +21,7 @@ public class Menu {
 	}
 
 	public void selecaoMenu() {
-		int opcMenu;	
+		int opcMenu;
 		do {
 			opcoesMenu();
 			try {
@@ -30,50 +30,58 @@ public class Menu {
 				opcMenu = -1;
 				key.next();
 			}
-			
+
 			switch (opcMenu) {
 			case 1:
 				comandos.listarProdutos();
 				break;
 			case 2:
 				System.out.println("Qual o Produto que deseja:");
-				comandos.buscarPorNome(key.next());
+				nome = key.nextLine();
+				nome = key.nextLine();
+				comandos.buscarPorNome(nome);
 				break;
 			case 3:
 				System.out.println("Qual o tipo de produto que deseja:");
-				comandos.buscarPorTipo(key.next());
+				tipo = key.nextLine();
+				tipo = key.nextLine();
+				comandos.buscarPorTipo(tipo);
 				break;
 			case 4:
 				System.out.println("Cadastro de produto:");
-				System.out.println("Qual o produto:");
-				nome = key.next();
+				System.out.println("Qual o nome produto:");
+				nome = key.nextLine();
+				nome = key.nextLine();
 				System.out.println("Qual tipo:");
-				tipo = key.next();
+				tipo = key.nextLine();
+
 				System.out.println("Qual o valor: ");
 				do {
-				    try {
-				        valor = key.nextDouble();
-				        if (valor < 0) {
-				            System.out.println("O valor não pode ser negativo. Tente novamente: ");
-				        }
-				    } catch (InputMismatchException e) {
-				        System.out.println("Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
-				        key.nextLine();
-				        valor = -1;
-				    }
+					try {
+						valor = key.nextDouble();
+						if (valor < 0) {
+							System.out.println("O valor não pode ser negativo. Tente novamente: ");
+						}
+					} catch (InputMismatchException e) {
+						System.out.println(
+								"Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
+						key.nextLine();
+						valor = -1;
+					}
 				} while (valor < 0);
 				System.out.println("Qual a quantidade");
 				do {
-				    try {
-				        quantidade = key.nextInt();
-				        if (quantidade <= 0) {
-				            System.out.println("O valor não pode ser negativo. Tente novamente: ");
-				        }
-				    } catch (InputMismatchException e) {
-				        System.out.println("Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
-				        key.nextLine();
-				        quantidade = -1;
-				    }
+					try {
+						quantidade = key.nextInt();
+						if (quantidade <= 0) {
+							System.out.println("O valor não pode ser negativo. Tente novamente: ");
+						}
+					} catch (InputMismatchException e) {
+						System.out.println(
+								"Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
+						key.nextLine();
+						quantidade = -1;
+					}
 				} while (quantidade <= 0);
 				comandos.cadastrarProduto(nome, tipo, valor, quantidade);
 				break;
@@ -81,50 +89,55 @@ public class Menu {
 			case 5:
 				System.out.println("Qual produto ira excluir:");
 				String excluir = key.next();
-				
-				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente Excluir esse item?", "Confirmação", JOptionPane.YES_NO_OPTION);
+
+				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente Excluir esse item?", "Confirmação",
+						JOptionPane.YES_NO_OPTION);
 				if (resposta == JOptionPane.YES_OPTION) {
 					comandos.excluirProduto(excluir);
 					System.out.println("Produto excluido com sucesso");
-				}else {
+				} else {
 					System.out.println("Operação cancelada");
 				}
 				break;
-			
+
 			case 6:
 				System.out.println("qual o produto que ira trocar o valor");
-				nome = key.next();
+				nome = key.nextLine();
+				nome = key.nextLine();
 				System.out.println("Qual o novo valor:");
 				do {
-				    try {
-				        valor = key.nextDouble();
-				        if (valor < 0) {
-				            System.out.println("O valor não pode ser negativo. Tente novamente: ");
-				        }
-				    } catch (InputMismatchException e) {
-				        System.out.println("Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
-				        key.nextLine();
-				        valor = -1;
-				    }
+					try {
+						valor = key.nextDouble();
+						if (valor < 0) {
+							System.out.println("O valor não pode ser negativo. Tente novamente: ");
+						}
+					} catch (InputMismatchException e) {
+						System.out.println(
+								"Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
+						key.nextLine();
+						valor = -1;
+					}
 				} while (valor < 0);
-				
+
 				comandos.alterarValor(nome, valor);
 				break;
 			case 7:
 				System.out.println("qual o produto que ira mudar  quantidade no estoque");
-				nome = key.next();
+				nome = key.nextLine();
+				nome = key.nextLine();
 				System.out.println("quantos tem no estoque");
 				do {
-				    try {
-				        quantidade = key.nextInt();
-				        if (quantidade <= 0) {
-				            System.out.println("O valor não pode ser negativo. Tente novamente: ");
-				        }
-				    } catch (InputMismatchException e) {
-				        System.out.println("Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
-				        key.nextLine();
-				        quantidade = -1;
-				    }
+					try {
+						quantidade = key.nextInt();
+						if (quantidade <= 0) {
+							System.out.println("O valor não pode ser negativo. Tente novamente: ");
+						}
+					} catch (InputMismatchException e) {
+						System.out.println(
+								"Valor inválido. Deve ser um número separado por vírgula para centavos. Tente novamente: ");
+						key.nextLine();
+						quantidade = -1;
+					}
 				} while (quantidade <= 0);
 				comandos.alterarEstoque(nome, quantidade);
 				break;
