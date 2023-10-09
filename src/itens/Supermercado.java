@@ -23,14 +23,12 @@ public class Supermercado {
         listaDeProdutos.add(produto);
     }
 
-    // F001: Listar produtos
     public void listarProdutos() {
         for (Produto produto : listaDeProdutos) {
             System.out.println(produto);
         }
     }
 
-    // F002: Busca de produtos (nome)
     public void buscarPorNome(String nome) {
         boolean encontrou = false;
 
@@ -46,7 +44,6 @@ public class Supermercado {
         }
     }
 
-    // F003: Busca de produtos (tipo)
     public void buscarPorTipo(String tipo) {
     	boolean encontrou = false;
 
@@ -62,17 +59,14 @@ public class Supermercado {
         }
     }
 
-    // F004: Cadastrar produtos
     public void cadastrarProduto(String nome, String tipo, double valor, int quantidadeEmEstoque) {
     	adicionarProduto(nome,tipo,valor,quantidadeEmEstoque);
     }
 
-    // F005: Excluir produto
     public void excluirProduto(String nome) {
         listaDeProdutos.removeIf(produto ->  produto.getNome().toLowerCase().contains(nome.toLowerCase()));
     }
 
-    // F006: Alterar valor de produto
     public void alterarValor(String nome, double novoValor) {
         for (Produto produto : listaDeProdutos) {
             if (produto.getNome().toLowerCase().contains(nome.toLowerCase())) {
@@ -82,7 +76,6 @@ public class Supermercado {
         }
     }
         
-     // F006: Alterar valor de produto
         public void alterarEstoque(String nome, int novoValor) {
             for (Produto produto : listaDeProdutos) {
                 if (produto.getNome().toLowerCase().contains(nome.toLowerCase())) {
