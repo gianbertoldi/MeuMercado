@@ -10,12 +10,12 @@ public class Supermercado {
 	public Supermercado() {
 		listaDeProdutos = new ArrayList<>();
 		// Adicione produtos iniciais
-		/*adicionarProduto("Itaipava", "Cerveja", 1.50, 200);
+		adicionarProduto("Itaipava", "Cerveja", 1.50, 200);
 		adicionarProduto("Skol", "Cerveja", 1.70, 300);
 		adicionarProduto("Del Valle", "Suco", 2.10, 100);
 		adicionarProduto("Pepsi Cola 2L", "Refrigerante", 3.00, 800);
 		adicionarProduto("Guaraná Charrua 2L", "Refrigerante", 2.50, 340);
-		adicionarProduto("Bis branco", "Chocolate", 2.70, 50);*/
+		adicionarProduto("Bis branco", "Chocolate", 2.70, 50);
 	}
 
 	public void listarProdutos() {
