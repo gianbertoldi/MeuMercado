@@ -125,7 +125,7 @@ public class Menu {
 				System.out.println("qual o produto que ira mudar  quantidade no estoque");
 				nome = key.nextLine();
 				nome = key.nextLine();
-				System.out.println("quantos tem no estoque");
+				System.out.println("Para qual quantidade gostaria de alterar?");
 				do {
 					try {
 						quantidade = key.nextInt();
